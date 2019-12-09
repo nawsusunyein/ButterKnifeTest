@@ -2,6 +2,7 @@ package com.example.butterknifetest;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import butterknife.BindString;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -9,6 +10,7 @@ import butterknife.OnClick;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
@@ -32,6 +34,12 @@ public class MainActivity extends AppCompatActivity {
     @BindView(R.id.btnReset)
     Button btnReset;
 
+    @BindView(R.id.bindTextString)
+    TextView textBindString;
+
+    @BindString(R.string.bind_text)
+    String bindValueString;
+
     private String username;
     private String phone;
     private String address;
@@ -42,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+        textBindString.setText(bindValueString);
     }
 
     private void getDataFromEditTextField(){
